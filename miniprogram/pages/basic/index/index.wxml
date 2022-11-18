@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view scroll-y class="scrollPage">
+  <image src='/images/bg.png' mode='widthFix' class='bg' style="width: 750rpx; height: 156rpx; display: inline-block; box-sizing: border-box; left: 0rpx; top: 0rpx; position: relative"></image>
+  <view class='nav-list'>
+    <navigator open-type="navigate" hover-class='none' url="/pages/basic/{{item.url}}/{{item.url}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+      <view class="nav-title">{{item.title}}</view>
+      <view class="nav-name">{{item.name}}</view>
+      <text class='cuIcon-{{item.icon}}'></text>
+    </navigator>
+  </view>
+  <view class='cu-tabbar-height'></view>
+</scroll-view>
+
+</view>

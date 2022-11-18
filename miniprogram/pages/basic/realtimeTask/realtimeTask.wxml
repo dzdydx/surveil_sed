@@ -1,0 +1,44 @@
+<!--pages/basic/realtimeTask/realtimeTask.wxml-->
+<wxs src="isContain.wxs" module="isContain" /> 
+
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"> 
+  <view slot="backText">返回</view>
+  <view slot="content">任务调度</view>
+</cu-custom>
+
+<block wx:for="{{p_taskList}}">
+  <block wx:if="{{item.assign.length != 0}}">
+  <view class="cu-bar bg-white solid-bottom margin-top" >
+      <view class="action">
+        <text class="cuIcon-title text-orange "></text> 用户ID： {{item.userId}}
+      </view>
+  </view>
+  </block>
+  <view class="cu-list menu card-menu margin-top">
+        <view class="cu-item " style="display: flex;flex-direction: row;" wx:for="{{item.assign}}" wx:key>
+          <view class="content" style="display: flex; flex-direction: column;">
+            <view style="display: flex;flex-direction: row;">
+              <text class="cuIcon-time text-grey"></text>
+              <text class=" margin-left text-bold">{{item.timestamp}}</text>
+            </view>
+            <view style="display: flex;flex-direction: row;">
+              <view class="{{item.type == 2 ? 'text-red cuIcon-warnfill' : item.type == 1 ? 'text-yellow cuIcon-infofill' : 'text-green cuIcon-infofill'}}">
+              </view>
+              <text class="margin-left">疑似发生事件: <text class="text-bold ">{{item.event}}</text></text>
+            </view>
+          </view>
+            <view class="action" >
+            <block wx:if="{{isContain.isContain(clickedIndex, index)}}">
+              <button class="cu-btn bg-green shadow" style="width: fit-content;"   bindtap="handleEvent" data-event="{{item}}" data-index="{{index}}" disabled>已处理</button>
+              <!-- 已处理 -->
+            </block>
+            <block wx:else>
+              <button class="cu-btn bg-green shadow" style="width: fit-content;"   bindtap="handleEvent" data-event="{{item}}" data-index="{{index}}">处理</button>
+              <!-- 处理 -->
+            </block>
+            <!-- <view>{{isContain.isContain(clickedIndex, index)}}</view> -->
+            <!-- <view>{{clickedIndex}}</view> -->
+            </view>
+        </view>
+  </view>
+</block>

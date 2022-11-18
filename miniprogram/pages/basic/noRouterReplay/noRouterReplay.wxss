@@ -1,0 +1,10 @@
+/* pages/basic/noRouterReplay/noRouterReplay.wxss */
+
+.replayStyle{
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}

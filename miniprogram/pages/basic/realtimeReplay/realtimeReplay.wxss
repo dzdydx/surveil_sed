@@ -1,0 +1,78 @@
+/* pages/basic/realtimeReplay/realtimeReplay.wxss */
+
+/* pages/basic/realtimeEvent/realtimeEvent.wxss */
+
+.box {
+  margin: 50% auto;
+  width: 685rpx;
+  height: 30rpx;
+  /* background: #ffffff; */
+  border-radius: 10rpx;
+  /* box-shadow: 0px 0px 30rpx 1rpx #ffffff inset; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.loading3 {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #1a52ca9f;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 100%;
+  animation: arrow-circle infinite 0.75s linear;
+}
+
+.loading3:before,
+.loading3:after {
+  position: absolute;
+  top: 24px;
+  left: -2px;
+  border-top: 5px solid #1a52ca9f;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: "";
+  transform: rotate(-30deg);
+}
+
+.loading3:after {
+  top: 0;
+  left: 20.5px;
+
+  transform: rotate(150deg);
+}
+
+@keyframes arrow-circle {
+  0% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.eventText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.emptyText{
+  margin: 50% auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.steps-bottom.cu-steps .cu-item .num::before {
+  content: "\e668";
+  font-family: 'iconfont';
+}
+

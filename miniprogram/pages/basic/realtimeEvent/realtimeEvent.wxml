@@ -1,0 +1,54 @@
+<!--pages/basic/realtimeEvent/realtimeEvent.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"> 
+  <view slot="backText">返回</view>
+  <view slot="content">预警事件</view>
+</cu-custom>
+
+
+<block wx:if="{{!eventResultLoaded}}">
+  <view class="box">
+    <view class="loading3" >
+    </view>
+  </view>
+  <text class="eventText" style="position: relative; left: 0rpx; top: -172rpx">正在加载声音事件检索结果</text>
+</block>
+
+
+
+<block wx:if="{{eventResultLoaded}}">
+  
+  <block wx:if="{{!eventResultNotEmpty}}">
+    <view>
+      <view class="emptyText text-xl">
+        <icon class="icon-box-img" type="success" size="70"></icon>
+        <text class="text-bold" style="margin-top: 10%;" >今日暂未检测到异常声音事件发生</text>
+      </view>
+    </view>
+  </block>
+
+  <view class="cu-timeline" wx:if="{{eventResultNotEmpty == true}}" wx:for="{{eventResult}}" wx:key>
+    <view class="cu-time">{{item.date}}</view>
+
+    <block  wx:for="{{item.result}}" wx:key>
+      <view wx:if="{{item.eventType == 0}}" class="cu-item text-green cuIcon-infofill"  >
+          <navigator open-type="navigate" url="/pages/basic/noRouterReplay/noRouterReplay?time={{item.time}}" class="content bg-green shadow-blur">
+          <text>{{item.time}}</text> 检测到疑似<text class="text-bold">{{item.event}}</text>
+          </navigator>
+      </view>
+
+      <view wx:if="{{item.eventType == 1}}" class="cu-item text-yellow cuIcon-infofill">
+          <navigator open-type="navigate" url="/pages/basic/noRouterReplay/noRouterReplay?time={{item.time}}" class="content bg-yellow shadow-blur">
+          <text>{{item.time}}</text> 检测到疑似<text class="text-bold">{{item.event}}</text>
+          </navigator>
+      </view>
+
+      <view wx:if="{{item.eventType == 2}}" class="cu-item text-red cuIcon-warnfill">
+          <navigator open-type="navigate" url="/pages/basic/noRouterReplay/noRouterReplay?time={{item.time}}" class="content bg-red shadow-blur">
+            <text>{{item.time}}</text> 检测到疑似<text class="text-bold">{{item.event}}</text>
+          </navigator>
+      </view>
+    </block>
+
+  </view>
+
+</block>

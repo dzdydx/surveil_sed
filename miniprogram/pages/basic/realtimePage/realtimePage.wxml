@@ -1,0 +1,38 @@
+<!--pages/basic/realtimePage/realtimePage.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"> 
+  <view slot="backText">返回</view>
+  <view slot="content">实时监控</view>
+</cu-custom>
+
+<!-- 视频组件 -->
+<view class="margin-top" style="display: flex;justify-content: center;"> 
+
+  <live-player id="player" src="rtmp://192.168.31.240:1935/live/stream" mode="RTC" bindstatechange="statechange" binderror="error" autoplay="true" style="width: 300px; height: 225px;" />
+
+  <!-- <video src="http://192.168.31.240:8020/live/stream/index.m3u8"
+  autoplay="true">
+  </video> -->
+</view>
+
+<!-- 云台控制 -->
+<view class="cu-bar margin-top bg-white">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>云台控制
+  </view>
+</view>
+<view class="btnholder">
+    <view class="btnContainer">
+      <view class="btn"  wx:for="{{plzBtn}}" wx:key="index" bindtap="plzControl" data-index="{{index}}" hover-class='highSelectColor' >
+        <image style = "width:20px;height:20px" wx:if="{{index!=4}}" class='btn_img' src="../../../images/{{index2img[index]}}.png" ></image>
+        {{index}}
+      </view>
+    </view>
+</view>
+<view class="cu-bar margin-top bg-white">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>双向通话
+  </view>
+</view>
+<view class="padding">
+  <button class="cu-btn block bg-green margin-tb-sm lg" bindtap="btnCall">开始通话</button>
+</view>

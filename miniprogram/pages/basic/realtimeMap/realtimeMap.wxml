@@ -1,0 +1,16 @@
+<!--pages/basic/realtimeMap/realtimeMap.wxml-->
+<view class="map_box">
+  <map id="sed_map" longitude="{{mapCenter_long}}" latitude="{{mapCenter_la}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
+  </map>
+</view>
+
+<view class="info_box">
+  <view class="cu-avatar xl round margin-top margin-left" style="background-image:url('../../../images/male3.png');"></view>
+  <view class="grid col-{{1+1}} margin-top text-bold">
+      <view class="padding">姓名： {{pinfo.name}}</view>
+      <view class="padding">用户ID： {{pinfo.userId}}</view>
+      <view class="padding">门牌号： {{pinfo.doornum}}</view>
+      <view class="padding">联系方式： {{pinfo.tel}}</view>
+    </view>
+  <button class="btn bg-green lg" bindtap="naviIndex">进入主界面</button>
+</view>

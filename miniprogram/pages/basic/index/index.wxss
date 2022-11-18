@@ -1,0 +1,12 @@
+/**index.wxss**/
+
+.scrollPage {
+  height: 100vh;
+}
+
+.bg {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+}

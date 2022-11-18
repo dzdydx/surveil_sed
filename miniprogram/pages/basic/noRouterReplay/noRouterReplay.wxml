@@ -1,0 +1,15 @@
+<!--pages/basic/noRouterReplay/noRouterReplay.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"> 
+  <view slot="backText">返回</view>
+  <view slot="content">视频回放</view>
+</cu-custom>
+
+<view class="replayTextStyle">
+</view>
+
+<view class="replayStyle" style="display: flex;justify-content: center;"> 
+  <video style="width: 100vw;" src="{{videoSource}}">
+  </video>
+</view>
+
+

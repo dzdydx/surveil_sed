@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/basic/realtimeMap/realtimeMap",
+    "pages/basic/index/index",
+    "pages/basic/realtimeInfo/realtimeInfo",
+    "pages/basic/realtimePage/realtimePage",
+    "pages/basic/realtimeReplay/realtimeReplay",
+    "pages/basic/realtimeVolume/realtimeVolume",
+    "pages/basic/realtimeEvent/realtimeEvent",
+    "pages/basic/noRouterReplay/noRouterReplay",
+    "pages/basic/realtimeTask/realtimeTask"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#39b54a",
+    "navigationBarTitleText": "基于SED的智能家居DEMO",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "./components/cu-custom/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "点击确认"
+    }
+  }
+}

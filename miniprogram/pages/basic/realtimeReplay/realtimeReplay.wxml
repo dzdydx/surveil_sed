@@ -1,0 +1,52 @@
+<!--pages/basic/realtimeReplay/realtimeReplay.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"> 
+  <view slot="backText">返回</view>
+  <view slot="content">监控回放</view>
+</cu-custom>
+
+<block wx:if="{{!eventResultLoaded}}">
+  <view class="box">
+    <view class="loading3" >
+    </view>
+  </view>
+  <text class="eventText" style="position: relative; left: 0rpx; top: -172rpx">正在加载声音事件检索结果</text>
+</block>
+
+<block wx:if="{{eventResultLoaded}}">
+  
+  <block wx:if="{{!eventResultNotEmpty}}">
+    <view>
+      <view class="emptyText text-xl">
+        <icon class="icon-box-img" type="success" size="70"></icon>
+        <text class="text-bold" style="margin-top: 10%;" >今日暂未检测到异常声音事件发生</text>
+      </view>
+    </view>
+  </block>
+
+  <block wx:if="{{eventResultNotEmpty}}">
+    <view class="margin-top" style="display: flex;justify-content: center;"> 
+      <video style="width: 100vw;" src="{{videoSource}}">
+      </video>
+    </view>
+
+    <view class="cu-bar bg-white solid-bottom margin-top">
+      <view class="action">
+        <text class="cuIcon-title text-blue"></text> 事件浓缩
+      </view>
+      <view class="action" style="width : 30%;">
+        <button class="cu-btn bg-green shadow" bindtap="scrollPrevSteps">上一事件</button>
+      </view>
+      <view class="action" style="width : 30%;">
+        <button class="cu-btn bg-green shadow" bindtap="scrollNextSteps">下一事件</button>
+      </view>
+    </view>
+
+
+    <scroll-view scroll-x class="bg-white padding response cu-steps steps-bottom" scroll-into-view="scroll-{{scroll}}" scroll-with-animation>
+      <view class="cu-item {{index > scroll? ( item.eventType == 0 ? 'text-green' : (item.eventType == 1 ? 'text-yellow' : 'text-red')) :'text-blue'}} padding-lr-xl" wx:for="{{eventResult[0].result}}" wx:key id="scroll-{{index}}" bindtap="byClickEvent" data-time="{{item.time}}" data-index="{{index}}">
+        {{item.time}} -- {{item.event}}
+        <text class="num" data-index="{{index}}"></text>
+      </view>
+    </scroll-view>
+  </block>
+</block>
