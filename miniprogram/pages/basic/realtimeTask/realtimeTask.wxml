@@ -3,7 +3,7 @@
 
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"> 
   <view slot="backText">返回</view>
-  <view slot="content">任务调度</view>
+  <view slot="content">任务信息</view>
 </cu-custom>
 
 <block wx:for="{{p_taskList}}">

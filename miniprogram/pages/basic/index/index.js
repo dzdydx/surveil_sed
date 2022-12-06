@@ -12,26 +12,33 @@ Page({
       url:'realtimePage'
     },
     {
-      title: '预警事件',
+      title: '查看任务',
+      name: 'Assignment',
+      color : 'red',
+      icon : 'messagefill',
+      url : 'realtimeTask'
+    },
+    {
+      title: '历史事件',
       name: 'Events',
       color: 'blue',
       icon: 'list',
       url:'realtimeEvent'
     },
-    {
-      title: '监控回放',
-      name: 'Replay',
-      color: 'purple',
-      icon: 'playfill',
-      url : 'realtimeReplay'
-    },
-    {
-      title: '异常响度',
-      name: 'Volume',
-      color: 'orange',
-      icon: 'activity',
-      url : 'realtimeVolume'
-    },
+    // {
+    //   title: '监控回放',
+    //   name: 'Replay',
+    //   color: 'purple',
+    //   icon: 'playfill',
+    //   url : 'realtimeReplay'
+    // },
+    // {
+    //   title: '异常响度',
+    //   name: 'Volume',
+    //   color: 'orange',
+    //   icon: 'activity',
+    //   url : 'realtimeVolume'
+    // },
     {
       title: '个人信息 ',
       name: 'Information',
@@ -39,20 +46,13 @@ Page({
       icon: 'myfill',
       url : 'realtimeInfo'
     },
-    {
-      title: '任务调度',
-      name: 'Assignment',
-      color : 'red',
-      icon : 'messagefill',
-      url : 'realtimeTask'
-    },
-    {
-      title: '返回控制台',
-      name : 'Console',
-      color: 'brown',
-      icon : 'newsfill',
-      url : 'realtimeMap'
-    }
+    // {
+    //   title: '返回控制台',
+    //   name : 'Console',
+    //   color: 'brown',
+    //   icon : 'newsfill',
+    //   url : 'realtimeMap'
+    // }
   ],
   },
   onLoad : function(options){

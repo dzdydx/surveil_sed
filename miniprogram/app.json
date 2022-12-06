@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/basic/realtimeMap/realtimeMap",
     "pages/basic/index/index",
     "pages/basic/realtimeInfo/realtimeInfo",
     "pages/basic/realtimePage/realtimePage",
@@ -12,7 +11,7 @@
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
-    "navigationBarTitleText": "基于SED的智能家居DEMO",
+    "navigationBarTitleText": "SED现场执法",
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white"
   },
