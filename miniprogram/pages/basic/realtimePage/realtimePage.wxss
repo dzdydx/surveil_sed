@@ -4,6 +4,14 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  transition: height 1s;
+  -moz-transition: height 1s;
+  /* Firefox 4 */
+  -webkit-transition: height 1s;
+  /* Safari and Chrome */
+  -o-transition: height 1s;
+  /* Opera */
+  overflow: hidden;
 }
 
 .btnContainer{
@@ -14,19 +22,27 @@
   /* justify-content: space-between; */
 }
 
-.btn {
-  width: 31%;				
-  height: 10ch;
+/* .btn {
+  width: 25%;				
+  height: 12ch;
   margin: 1%;
   box-sizing: border-box;
-  /* background-color: lightblue; */
-  color: whitesmoke;
+  color: white;
+  background-color: white;
   display: flex;				
   flex-direction: row;
   align-items: center;
   justify-content: center; 
   margin-top: 1px;
-}
+} */
+
+.btn {
+    height: 160rpx;
+    display: flex;				
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; 
+  }
 
 .btn_img{
   height: 100%;
@@ -36,8 +52,8 @@
 
 
 .highSelectColor{
-  background-color: white;
-
+  background-color: lightblue;
+  color: lightblue;
 }
 
 .call{

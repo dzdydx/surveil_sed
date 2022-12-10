@@ -15,24 +15,45 @@
 </view>
 
 <!-- 云台控制 -->
-<view class="cu-bar margin-top bg-white">
-  <view class="action">
-    <text class="cuIcon-title text-blue"></text>云台控制
+<view class="margin-top bg-white padding">
+  <view class="grid col-1">
+    <view class="margin-bottom">
+      监控点位置：<text>{{unitLocation}}</text>
+    </view>
+    <view>
+      负责人：<text>{{unitManager}}</text>
+    </view>
   </view>
 </view>
-<view class="btnholder">
-    <view class="btnContainer">
-      <view class="btn"  wx:for="{{plzBtn}}" wx:key="index" bindtap="plzControl" data-index="{{index}}" hover-class='highSelectColor' >
-        <image style = "width:20px;height:20px" wx:if="{{index!=4}}" class='btn_img' src="../../../images/{{index2img[index]}}.png" ></image>
-        {{index}}
+
+<view class="margin-top bg-white padding">
+  <view class="cu-list grid col-2 solid-top">
+    <view class="cu-item" bindtap="callCollapse" style="background-color: {{isCallCollapsed?'white':'#F0F0F0'}};">
+      <text class="cuIcon-phone lg text-gray"></text>
+      <text>语音通话</text>
+    </view>
+    <view class="cu-item" bindtap="gimbalCollapse" style="background-color: {{isGimbalCollapsed?'white':'#F0F0F0'}};">
+      <text class="cuIcon-game lg text-gray"></text>
+      <text>云台控制</text>
+    </view>
+  </view> 
+</view>
+
+<view wx:if="{{!isGimbalCollapsed}}" class="margin-top cu-bar bg-white">
+    <view class="action">
+        <text class="cuIcon-title text-blue"></text>云台控制
+    </view>
+</view>
+<view wx:if="{{!isGimbalCollapsed}}" class="bg-white padding">
+    <view class="grid col-3">
+      <view class="btn" wx:for="{{plzBtn}}" wx:key="index" bindtap="plzControl" data-index="{{index}}" hover-class="{{item==4?'':'highSelectColor'}}" >
+        <image style = "width:20px;height:20px" wx:if="{{item!=4}}" class='btn_img' src="../../../images/{{index2img[item]}}.png" ></image>
       </view>
     </view>
 </view>
-<view class="cu-bar margin-top bg-white">
-  <view class="action">
-    <text class="cuIcon-title text-blue"></text>双向通话
-  </view>
-</view>
-<view class="padding">
-  <button class="cu-btn block bg-green margin-tb-sm lg" bindtap="btnCall">开始通话</button>
+
+<view wx:if="{{!isCallCollapsed}}" class="margin-top cu-bar bg-white">
+    <button class="cu-btn block bg-{{callBtnColor}} cu-load {{callLoadingState}} margin-tb-sm lg shadow" bindtap="btnCall">
+        {{callText}}
+    </button>
 </view>
